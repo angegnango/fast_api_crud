@@ -1,0 +1,14 @@
+#IDE
+.vscode
+
+# VIRTUAL ENV
+env
+
+# PYTHON CACHE
+__pycache__
+
+# PYTEST CACHE
+.pytest_cache
+
+# ENVIRONMENT VARIABLES
+.env
