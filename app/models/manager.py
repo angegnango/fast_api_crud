@@ -1,6 +1,6 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
-from app.config.database import Base, engine
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, Integer, String
+from app.config.database import Base
+
 
 class Manager(Base):
 
@@ -9,5 +9,6 @@ class Manager(Base):
     id = Column(Integer, primary_key=True, index=True)
     first_name = Column(String, unique=True, index=True)
     last_name = Column(String)
+    
     
 

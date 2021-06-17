@@ -39,6 +39,24 @@ def test_post_asset(mock_client):
 
     assert response.status_code == status.HTTP_201_CREATED
 
+
+def test_post_asset_with_wrong_asset_type(mock_client):
+    """ post asset suite test case for authenticated and wrong asset type"""
+
+    mock_asset = {
+        'name': 'asset',
+        'asset_type': 'ok',
+        'nominal_electric_power': 10
+    }
+
+    response = mock_client.post(
+        '/api/v1/assets',
+        headers={'Authorization': f'Bearer {access_token}'},
+        json = mock_asset,
+    )
+
+    assert response.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
+
     
 def test_fetch_asset(mock_client):
     """ fetch asset suite case for authenticated user """
