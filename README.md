@@ -25,3 +25,12 @@ As a FastAPI API service hit that endpoint to have access and play with:
 
 - `http://127.0.0.1:8000/docs`
 
+
+## Next work 
+
+- Dockerize this api and use postgres as database
+- Handle Cache for get endpoints
+- Refactor CRUD to have one crud handler for all models
+
+
+
