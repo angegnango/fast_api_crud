@@ -2,6 +2,7 @@ from app.schemas.asset import AssetBase
 from app.models.asset import Asset
 from app.config.database import get_db
 from sqlalchemy.orm import Session
+from app.services.site import site_crud
 from fastapi import Depends, HTTPException, status
 
 class AssetService:
@@ -19,8 +20,21 @@ class AssetService:
 
 
     def update(self, asset_id:int, asset:AssetBase, db:Session=Depends(get_db)):
+        
         asset_to_update = self.get_asset(asset_id, db)
-        asset_to_update.nominal_electric_power = asset.nominal_electric_power
+        nominal_electric_power = asset.nominal_electric_power
+
+        # Apply site maximul power constraint
+        if asset.site_id:
+            site = site_crud.get_site(asset.site_id, db)
+            if site_crud.power_capacity(site) > nominal_electric_power:
+                asset_to_update.site_id = asset.site_id
+            else:
+                db.add(asset_to_update)
+                db.commit()
+                db.refresh(asset_to_update)
+                raise HTTPException(status_code=status.HTTP_403_FORBIDDEN)
+
         db.add(asset_to_update)
         db.commit()
         db.refresh(asset_to_update)

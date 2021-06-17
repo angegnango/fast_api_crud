@@ -11,7 +11,7 @@ class Site(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True, index=True)
     address = Column(String)
-    nominal_electric_power = Column(Integer)
+    max_electric_power = Column(Integer)
     manager_id = Column(Integer, ForeignKey("managers.id"))
     assets = relationship("Asset", back_populates="site")
 
