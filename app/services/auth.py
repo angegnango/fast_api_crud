@@ -68,5 +68,5 @@ class AuthService:
         """ authentication middleware """
         return self.verify_token(auth.credentials)
         
-
+auth = AuthService()
     

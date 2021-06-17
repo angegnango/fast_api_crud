@@ -1,6 +1,10 @@
 from fastapi import FastAPI, status
 from fastapi.middleware.cors import CORSMiddleware
 from app.views import endpoints
+from app.config.database import Base, engine
+
+# Migrate Table
+Base.metadata.create_all(bind=engine)
 
 # Init Server
 app = FastAPI()
