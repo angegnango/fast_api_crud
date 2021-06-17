@@ -12,8 +12,8 @@ class AuthService:
     password_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
     def __init__(self,
-        secret:str=settings.get('JWT_SECRET'),
-        algorithm:str=settings.get('JWT_ALGORITHM')):
+        secret:str=settings.get('JWT_SECRET', 'secret'),
+        algorithm:str=settings.get('JWT_ALGORITHM', 'HS256')):
         self.JWT_SECRET = secret
         self.JWT_ALGORITHM = algorithm
 
