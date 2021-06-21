@@ -10,7 +10,7 @@ Welcome  ! Our goal was to build an API on top on FastAPI, enjoy !
 
 ## Getting started
 
-- Clone this repository : `docker-compose up -d api`.
+- Clone this repository : `https://github.com/angegnango/fast_api_crud`.
 - Navigate to the root directory , create and activate python virtual environment 
 - Run this command : `pip install -r app/requirements.txt`
 - Run the api : `uvicorn app.main:app`
