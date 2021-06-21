@@ -7,14 +7,12 @@ Welcome  ! Our goal was to build an API on top on FastAPI, enjoy !
 
 - Python 3.9
 - [FastAPI](https://fastapi.tiangolo.com/).
+- Docker (https://docs.docker.com/)
 
 ## Getting started
 
-- Clone this repository : `https://github.com/angegnango/fast_api_crud`.
-- Navigate to the root directory , create and activate python virtual environment 
-- Run this command : `pip install -r app/requirements.txt`
-- Run the api : `uvicorn app.main:app`
-
+- Clone this repository
+- Run this command: `docker-compose up --build`.
 
 Once you've done with all steps, the API are up and running.
 
@@ -23,14 +21,14 @@ Once you've done with all steps, the API are up and running.
 
 As a FastAPI API service hit that endpoint to have access and play with:
 
-- `http://127.0.0.1:8000/docs`
+- `http://localhost:8000/docs`
+
+# Terminate your container
+
+- Run `docker-compose down`
 
 
-## Next work 
-
-- Dockerize this api and use postgres as database
-- Handle Cache for get endpoints
-- Refactor CRUD to have one crud handler for all models
+Enjoy it
 
 
 
